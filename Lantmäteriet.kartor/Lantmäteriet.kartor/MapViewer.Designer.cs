@@ -41,7 +41,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tbTopoRow = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGetTopoMap = new System.Windows.Forms.Button();
             this.btnUrl = new System.Windows.Forms.Button();
             this.tbURL = new System.Windows.Forms.TextBox();
             this.pbMap = new System.Windows.Forms.PictureBox();
@@ -65,7 +65,7 @@
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.tbNrOfTiles);
             this.groupBox2.Controls.Add(this.groupBox3);
-            this.groupBox2.Controls.Add(this.button1);
+            this.groupBox2.Controls.Add(this.btnGetTopoMap);
             this.groupBox2.Location = new System.Drawing.Point(960, 12);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 236);
@@ -174,15 +174,15 @@
             this.label1.TabIndex = 4;
             this.label1.Text = "Set";
             // 
-            // button1
+            // btnGetTopoMap
             // 
-            this.button1.Location = new System.Drawing.Point(6, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(188, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "GetMap";
-            this.button1.UseVisualStyleBackColor = true;
-          //  this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnGetTopoMap.Location = new System.Drawing.Point(6, 19);
+            this.btnGetTopoMap.Name = "btnGetTopoMap";
+            this.btnGetTopoMap.Size = new System.Drawing.Size(188, 23);
+            this.btnGetTopoMap.TabIndex = 2;
+            this.btnGetTopoMap.Text = "GetMap";
+            this.btnGetTopoMap.UseVisualStyleBackColor = true;
+            this.btnGetTopoMap.Click += new System.EventHandler(this.btnGetTopoMap_Click);
             // 
             // btnUrl
             // 
@@ -192,7 +192,7 @@
             this.btnUrl.TabIndex = 2;
             this.btnUrl.Text = "URL";
             this.btnUrl.UseVisualStyleBackColor = true;
-         //   this.btnUrl.Click += new System.EventHandler(this.btnUrl_Click);
+            this.btnUrl.Click += new System.EventHandler(this.btnUrl_Click);
             // 
             // tbURL
             // 
@@ -239,7 +239,7 @@
         private System.Windows.Forms.Button btnUrl;
         private System.Windows.Forms.TextBox tbURL;
         private System.Windows.Forms.PictureBox pbMap;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGetTopoMap;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

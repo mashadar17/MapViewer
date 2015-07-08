@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lantmäteriet.kartor.Viewer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lantmäteriet.kartor.downloader", "Lantmäteriet.kartor.downloader\Lantmäteriet.kartor.downloader.csproj", "{D7A0A06C-E43A-4EF8-8EDA-374AE472E743}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lantmäteriet.kartor.downloader.test", "Lantmäteriet.kartor.downloader.test\Lantmäteriet.kartor.downloader.test.csproj", "{6220C576-F6F3-4C2D-9882-6D6EE2C3C1FC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{D7A0A06C-E43A-4EF8-8EDA-374AE472E743}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D7A0A06C-E43A-4EF8-8EDA-374AE472E743}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D7A0A06C-E43A-4EF8-8EDA-374AE472E743}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6220C576-F6F3-4C2D-9882-6D6EE2C3C1FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6220C576-F6F3-4C2D-9882-6D6EE2C3C1FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6220C576-F6F3-4C2D-9882-6D6EE2C3C1FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6220C576-F6F3-4C2D-9882-6D6EE2C3C1FC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

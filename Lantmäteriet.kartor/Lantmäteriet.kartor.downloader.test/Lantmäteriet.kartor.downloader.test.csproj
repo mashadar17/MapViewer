@@ -50,8 +50,16 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="SverigekartanlMapRequestTest.cs" />
+    <Compile Include="GeneralMapRequestTest.cs" />
+    <Compile Include="TopoMapRequestTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lantmäteriet.kartor.downloader\Lantmäteriet.kartor.downloader.csproj">
+      <Project>{D7A0A06C-E43A-4EF8-8EDA-374AE472E743}</Project>
+      <Name>Lantmäteriet.kartor.downloader</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

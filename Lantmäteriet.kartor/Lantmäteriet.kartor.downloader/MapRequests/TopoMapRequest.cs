@@ -1,28 +1,29 @@
-﻿namespace Lantmäteriet.kartor.downloader
+﻿namespace Lantmäteriet.kartor.downloader.MapRequests
 {
+    using Lantmäteriet.kartor.downloader;
     using System;
     using System.Net;
 
-    public class TopMapRequest : IMapRequest
+    public class TopoMapRequest : IMapRequest
     {
         private readonly string host = "kso.lantmateriet.se";
         private readonly string path = "karta/topowebb/v1/wmts";
         private readonly string scheme = "http";
 
-        public TopMapRequest()
+        public TopoMapRequest()
         {
-            Service = "WMTS";
-            Request = "GetTile";
+            Service = Service.WMTS;
+            Request = Request.GetTile;
             Version = "1.0.0";
-            Layer = "topowebb";
+            Layer = Layers.topowebb;
             Style = "default";
             Format = "image%2Fpng";
         }
 
         public string Format { get; set; }
-        public string Layer { get; set; }
-        public string Request { get; set; }
-        public string Service { get; set; }
+        public Layers Layer { get; set; }
+        public Request Request { get; set; }
+        public Service Service { get; set; }
         public string Style { get; set; }
         public int Tilecol { get; set; }
         public int Tilematrix { get; set; }
@@ -31,15 +32,12 @@
         public string Version { get; set; }
         public string Query => GetQuery();
 
+
         public string GetUrl()
         {
-            var ub = new UriBuilder(scheme, host)
-            {
-                Path = path,
-                Query = Query
-            };
-            var uri = ub.Uri;
-            return uri.ToString();
+            var s = $"{scheme}://{host}/{path}?{Query}";
+
+            return s;
         }
 
         public WebRequest GetRequest()
@@ -51,28 +49,28 @@
 
         public IMapRequest Left(int steps = 1)
         {
-            var topMapRequest = (TopMapRequest) MemberwiseClone();
+            var topMapRequest = (TopoMapRequest) MemberwiseClone();
             topMapRequest.Tilecol = Tilecol - steps;
             return topMapRequest;
         }
 
         public IMapRequest Right(int steps = 1)
         {
-            var topMapRequest = (TopMapRequest) MemberwiseClone();
+            var topMapRequest = (TopoMapRequest) MemberwiseClone();
             topMapRequest.Tilecol = Tilecol + steps;
             return topMapRequest;
         }
 
         public IMapRequest Up(int steps = 1)
         {
-            var topMapRequest = (TopMapRequest) MemberwiseClone();
+            var topMapRequest = (TopoMapRequest) MemberwiseClone();
             topMapRequest.Tilerow = Tilerow - steps;
             return topMapRequest;
         }
 
         public IMapRequest Down(int steps = 1)
         {
-            var topMapRequest = (TopMapRequest) MemberwiseClone();
+            var topMapRequest = (TopoMapRequest) MemberwiseClone();
             topMapRequest.Tilerow = Tilerow + steps;
             return topMapRequest;
         }

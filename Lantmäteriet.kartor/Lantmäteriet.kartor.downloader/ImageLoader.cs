@@ -4,6 +4,7 @@
     using System.Collections.Generic;
     using System.Drawing;
     using System.Net;
+    using MapRequests;
 
     public static class ImageLoader
     {
@@ -39,7 +40,7 @@
             return i;
         }
 
-        public static Image GetImage(TopMapRequest tmr, int v)
+        public static Image GetImage(IMapRequest tmr, int v)
         {
             var images = new List<Image>();
 
@@ -55,18 +56,18 @@
             }
 
 
-            var topMapRequest = tmr.Left(startChange);
-            topMapRequest = topMapRequest.Up(startChange);
+            var mapRequest = tmr.Left(startChange);
+            mapRequest = mapRequest.Up(startChange);
 
 
             for (var row = 0; row < v; row++)
             {
                 for (var col = 0; col < v; col++)
                 {
-                    images.Add(GetImage(topMapRequest));
-                    topMapRequest = topMapRequest.Right();
+                    images.Add(GetImage(mapRequest));
+                    mapRequest = mapRequest.Right();
                 }
-                topMapRequest = topMapRequest.Left(v).Down();
+                mapRequest = mapRequest.Left(v).Down();
             }
 
             images.TrimExcess();
@@ -76,8 +77,8 @@
 
         private static Image JoinImages(List<Image> images)
         {
-            var height = images[0].Height;
-            var width = images[0].Width;
+            var height = images[0].Height+1;
+            var width = images[0].Width+1;
 
             var count = images.Count;
             var tiles = (int) Math.Sqrt(count);

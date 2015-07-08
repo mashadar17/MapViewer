@@ -45,8 +45,12 @@
     <Compile Include="MapRequests\GeneralMapRequest.cs" />
     <Compile Include="ImageLoader.cs" />
     <Compile Include="MapRequests\IMapRequest.cs" />
+    <Compile Include="MapRequests\Layers.cs" />
+    <Compile Include="MapRequests\Request.cs" />
+    <Compile Include="MapRequests\Service.cs" />
+    <Compile Include="MapRequests\SverigekartanMapRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MapRequests\TopMapRequest.cs" />
+    <Compile Include="MapRequests\TopoMapRequest.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

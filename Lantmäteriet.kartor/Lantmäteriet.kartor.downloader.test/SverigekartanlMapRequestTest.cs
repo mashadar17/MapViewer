@@ -7,11 +7,11 @@
     public class SverigekartanlMapRequestTest
     {
         private readonly string call =
-            "http://kso.lantmateriet.se/karta/allmannakartor/wms/v1?LAYERS=sverigekartan&EXCEPTIONS=application%2Fvnd.ogc.se_xml&FORMAT=image%2Fpng&TRANSPARENT=TRUE&STYLES=default&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&SRS=EPSG%3A3006&BBOX=372864,7059296,503936,7190368&WIDTH=512&HEIGHT=512";
+            "http://kso.lantmateriet.se/karta/allmannakartor/wms/v1?Layers=sverigekartan&EXCEPTIONS=application%2Fvnd.ogc.se_xml&FORMAT=image%2Fpng&TRANSPARENT=TRUE&STYLES=default&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&SRS=EPSG%3A3006&BBOX=372864,7059296,503936,7190368&WIDTH=512&HEIGHT=512";
 
         private readonly SverigekartanMapRequest smr = new SverigekartanMapRequest
         {
-            LAYERS = Layers.sverigekartan,
+            Layers = GeneralLayers.Sverigekartan,
             EXCEPTIONS = "application%2Fvnd.ogc.se_xml",
             FORMAT = "image%2Fpng",
             TRANSPARENT = true,
@@ -30,7 +30,7 @@
         {
             var qa = smr.Query;
             var qe =
-                "LAYERS=sverigekartan&EXCEPTIONS=application%2Fvnd.ogc.se_xml&FORMAT=image%2Fpng&TRANSPARENT=TRUE&STYLES=default&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&SRS=EPSG%3A3006&BBOX=372864,7059296,503936,7190368&WIDTH=512&HEIGHT=512";
+                "Layers=sverigekartan&EXCEPTIONS=application%2Fvnd.ogc.se_xml&FORMAT=image%2Fpng&TRANSPARENT=TRUE&STYLES=default&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&SRS=EPSG%3A3006&BBOX=372864,7059296,503936,7190368&WIDTH=512&HEIGHT=512";
 
             Assert.AreEqual(qe, qa);
         }

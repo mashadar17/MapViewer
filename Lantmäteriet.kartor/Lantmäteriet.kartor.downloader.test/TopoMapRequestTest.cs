@@ -17,7 +17,7 @@
             Service = Service.WMTS,
             Request = Request.GetTile,
             Version = "1.0.0",
-            Layer = Layers.topowebb,
+            Layer = TopoLayers.Topowebb,
             Style = "default",
             Tilematrixset = 3006,
             Tilematrix = 11,

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cbMapType = new System.Windows.Forms.ComboBox();
             this.btnGetGenerealMap = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -55,6 +57,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.cbMapType);
             this.groupBox1.Controls.Add(this.btnGetGenerealMap);
             this.groupBox1.Location = new System.Drawing.Point(1018, 283);
             this.groupBox1.Name = "groupBox1";
@@ -63,9 +67,27 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "General map";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 22);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(31, 13);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Type";
+            // 
+            // cbMapType
+            // 
+            this.cbMapType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMapType.FormattingEnabled = true;
+            this.cbMapType.Location = new System.Drawing.Point(43, 19);
+            this.cbMapType.Name = "cbMapType";
+            this.cbMapType.Size = new System.Drawing.Size(151, 21);
+            this.cbMapType.TabIndex = 8;
+            // 
             // btnGetGenerealMap
             // 
-            this.btnGetGenerealMap.Location = new System.Drawing.Point(6, 19);
+            this.btnGetGenerealMap.Location = new System.Drawing.Point(0, 234);
             this.btnGetGenerealMap.Name = "btnGetGenerealMap";
             this.btnGetGenerealMap.Size = new System.Drawing.Size(188, 23);
             this.btnGetGenerealMap.TabIndex = 7;
@@ -89,7 +111,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 187);
+            this.label5.Location = new System.Drawing.Point(43, 157);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(52, 13);
             this.label5.TabIndex = 6;
@@ -97,7 +119,7 @@
             // 
             // tbNrOfTiles
             // 
-            this.tbNrOfTiles.Location = new System.Drawing.Point(70, 185);
+            this.tbNrOfTiles.Location = new System.Drawing.Point(101, 155);
             this.tbNrOfTiles.Name = "tbNrOfTiles";
             this.tbNrOfTiles.Size = new System.Drawing.Size(87, 20);
             this.tbNrOfTiles.TabIndex = 5;
@@ -112,7 +134,7 @@
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.tbTopoRow);
             this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Location = new System.Drawing.Point(6, 48);
+            this.groupBox3.Location = new System.Drawing.Point(6, 19);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(188, 130);
             this.groupBox3.TabIndex = 5;
@@ -189,7 +211,7 @@
             // 
             // btnGetTopoMap
             // 
-            this.btnGetTopoMap.Location = new System.Drawing.Point(6, 19);
+            this.btnGetTopoMap.Location = new System.Drawing.Point(6, 207);
             this.btnGetTopoMap.Name = "btnGetTopoMap";
             this.btnGetTopoMap.Size = new System.Drawing.Size(188, 23);
             this.btnGetTopoMap.TabIndex = 2;
@@ -221,7 +243,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pbMap.Location = new System.Drawing.Point(12, 41);
             this.pbMap.Name = "pbMap";
-            this.pbMap.Size = new System.Drawing.Size(1000, 1000);
+            this.pbMap.Size = new System.Drawing.Size(1000, 995);
             this.pbMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbMap.TabIndex = 4;
             this.pbMap.TabStop = false;
@@ -230,7 +252,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1369, 1050);
+            this.ClientSize = new System.Drawing.Size(1369, 1045);
             this.Controls.Add(this.pbMap);
             this.Controls.Add(this.tbURL);
             this.Controls.Add(this.btnUrl);
@@ -239,6 +261,7 @@
             this.Name = "MapViewer";
             this.Text = "Lantmäteriets Kartor";
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tbNrOfTiles)).EndInit();
@@ -270,6 +293,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown tbNrOfTiles;
         private System.Windows.Forms.Button btnGetGenerealMap;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbMapType;
     }
 }
 

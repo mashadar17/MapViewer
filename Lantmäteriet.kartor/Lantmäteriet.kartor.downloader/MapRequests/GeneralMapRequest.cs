@@ -1,18 +1,20 @@
 ﻿namespace Lantmäteriet.kartor.downloader.MapRequests
 {
+    using System;
     using System.Net;
 
     public class GeneralMapRequest :  IMapRequest
-    {string host = "kso.lantmateriet.se";
+    {
+        string host = "kso.lantmateriet.se";
         string path = "karta/allmannakartor/wms/v1";
         string scheme = "http";
         public GeneralMapRequest()
         {
             
             SERVICE = Service.WMS;
-            REQUEST = Request.GetTile;
+            REQUEST = Request.GetMap;
             VERSION = "1.1.1";
-            LAYERS = Layers.terrangkartan;
+            Layers = GeneralLayers.Terrangkartan;
             STYLES = "default";
             FORMAT = "image%2Fpng";
             EXCEPTIONS = "application%2Fvnd.ogc.se_xml";
@@ -28,7 +30,7 @@
         }
 
         public BBox BBOX { get; set; }
-        public Layers LAYERS { get; set; }
+        public Enum Layers { get; set; }
         public string EXCEPTIONS { get; set; }
         public string Query => GetQuery();
         public bool TRANSPARENT { get; set; }
@@ -77,7 +79,7 @@
 
         private string GetQuery()
         {
-            string g = $"LAYERS={LAYERS}&";
+            string g = $"LAYERS={Layers.ToString().ToLower()}&";
             g += $"EXCEPTIONS={EXCEPTIONS}&";
             g += $"FORMAT={FORMAT}&";
             g += $"TRANSPARENT={TRANSPARENT.ToString().ToUpper()}&";

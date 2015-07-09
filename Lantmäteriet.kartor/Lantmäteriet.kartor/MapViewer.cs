@@ -1,4 +1,5 @@
-﻿namespace Lantmäteriet.kartor
+﻿
+namespace Lantmäteriet.kartor
 {
     using System;
     using System.Windows.Forms;
@@ -10,7 +11,10 @@
     {
         public MapViewer()
         {
-            InitializeComponent();
+            InitializeComponent()
+                
+                ;
+            cbMapType.DataSource = Enum.GetValues((typeof (GeneralLayers)));
         }
         private void btnUrl_Click(object sender, EventArgs e)
         {
@@ -54,21 +58,27 @@
 
         private void btnGetGenerealMap_Click(object sender, EventArgs e)
         {
+            var selectedText = cbMapType.SelectedValue.ToString();
+
+            GeneralLayers selectedMap = (GeneralLayers)Enum.Parse(typeof(GeneralLayers), selectedText);
+
+
+
+
 
             GeneralMapRequest tmr = new GeneralMapRequest()
-            {
-                BBOX = new BBox(482824.27469952, 6225778.7269399, 484178.11562848, 6227132.5678689),
+            {Layers = selectedMap,
+                BBOX = new BBox(482824, 6225778, 484178, 6227132),
             WIDTH = 512,
             HEIGHT = 512              
             };
            
 
-            var i = Parse(tbNrOfTiles.Text);
 
 
             try
             {
-                var image = ImageLoader.GetImage(tmr, i);
+                var image = ImageLoader.GetImage(tmr, 1);
                 pbMap.Image = image;
             }
             catch (Exception exception)

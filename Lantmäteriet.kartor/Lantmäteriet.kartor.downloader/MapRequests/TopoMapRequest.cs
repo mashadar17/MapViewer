@@ -15,13 +15,13 @@
             Service = Service.WMTS;
             Request = Request.GetTile;
             Version = "1.0.0";
-            Layer = Layers.topowebb;
+            Layer = TopoLayers.Topowebb;
             Style = "default";
             Format = "image%2Fpng";
         }
 
         public string Format { get; set; }
-        public Layers Layer { get; set; }
+        public Enum Layer { get; set; }
         public Request Request { get; set; }
         public Service Service { get; set; }
         public string Style { get; set; }
@@ -80,7 +80,7 @@
             string s = $"SERVICE={Service}&";
             s += $"REQUEST={Request}&";
             s += $"VERSION={Version}&";
-            s += $"LAYER={Layer}&";
+            s += $"LAYER={Layer.ToString().ToLower()}&";
             s += $"STYLE={Style}&";
             s += $"TILEMATRIXSET={Tilematrixset}&";
             s += $"TILEMATRIX={Tilematrix}&";

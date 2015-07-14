@@ -39,6 +39,9 @@
         public string VERSION { get; set; }
         public Request REQUEST { get; set; }
         public string SRS { get; set; }
+        //
+        //värden mellan 0 och 4096
+        //
         public int WIDTH { get; set; }
         public int HEIGHT { get; set; }
         public string FORMAT { get; set; }
@@ -52,28 +55,28 @@
         public IMapRequest Left(int steps = 1)
         {
             var mapRequest = (GeneralMapRequest) MemberwiseClone();
-            mapRequest.BBOX = BBOX.Left(steps);
+            mapRequest.BBOX = BBOX.GetBoxLeft(steps);
             return mapRequest;
         }
 
         public IMapRequest Right(int steps = 1)
         {
             var mapRequest = (GeneralMapRequest) MemberwiseClone();
-            mapRequest.BBOX = BBOX.Right(steps);
+            mapRequest.BBOX = BBOX.GetBoxRight(steps);
             return mapRequest;
         }
 
         public IMapRequest Up(int steps = 1)
         {
             var mapRequest = (GeneralMapRequest) MemberwiseClone();
-            mapRequest.BBOX = BBOX.Up(steps);
+            mapRequest.BBOX = BBOX.GetBoxOver(steps);
             return mapRequest;
         }
 
         public IMapRequest Down(int steps = 1)
         {
             var mapRequest = (GeneralMapRequest) MemberwiseClone();
-            mapRequest.BBOX = BBOX.Down(steps);
+            mapRequest.BBOX = BBOX.GetBoxUnder(steps);
             return mapRequest;
         }
 

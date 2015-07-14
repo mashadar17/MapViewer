@@ -1,48 +1,48 @@
+using System;
+
 namespace Lantmäteriet.kartor.downloader
 {
     public class BBox
     {
-        private readonly double _dx;
-        private readonly double _dy;
-
-        public BBox(double x1, double y1, double x2, double y2)
+        public BBox(int left, int bottom, int right, int Top)
         {
-            X1 = x1;
-            Y1 = y1;
-            X2 = x2;
-            Y2 = y2;
-            _dx = X2 - X1;
-            _dy = Y2 - Y1;
+            Left = left;
+            Bottom = bottom;
+            Right = right;
+            this.Top = Top;
         }
 
-        public double X1 { get; }
-        public double Y1 { get; }
-        public double X2 { get; }
-        public double Y2 { get; }
+        public int Left { get; }
+        public int Bottom { get; }
+        public int Right { get; }
+        public int Top { get; }
+        public int Width => Math.Abs(Right - Left);
+        public int Height => Math.Abs(Top - Bottom);
+        public double Ratio => (double)Width/Height;
 
         public override string ToString()
         {
-            return $"{X1},{Y1},{X2},{Y2}";
+            return $"{Left},{Bottom},{Right},{Top}";
         }
 
-        public BBox Left(int steps)
+        public BBox GetBoxLeft(int steps = 1)
         {
-            return new BBox(X1 - _dx*steps, Y1, X2 - _dx*steps, Y2);
+            return new BBox(Left - Width*steps, Bottom, Right - Width*steps, Top);
         }
 
-        public BBox Right(int steps)
+        public BBox GetBoxRight(int steps = 1)
         {
-            return new BBox(X1 + _dx*steps, Y1, X2 + _dx*steps, Y2);
+            return new BBox(Left + Width*steps, Bottom, Right + Width*steps, Top);
         }
 
-        public BBox Up(int steps)
+        public BBox GetBoxOver(int steps = 1)
         {
-            return new BBox(X1, Y1 - _dy*steps, X2, Y2 - _dy*steps);
+            return new BBox(Left, Bottom + Height*steps, Right, Top + Height*steps);
         }
 
-        public BBox Down(int steps)
+        public BBox GetBoxUnder(int steps = 1)
         {
-            return new BBox(X1, Y1 + _dy*steps, X2, Y2 + _dy*steps);
+            return new BBox(Left, Bottom - Height*steps, Right, Top - Height*steps);
         }
     }
 }

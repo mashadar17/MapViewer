@@ -63,6 +63,12 @@
             this.btnUrl = new System.Windows.Forms.Button();
             this.tbURL = new System.Windows.Forms.TextBox();
             this.pbMap = new System.Windows.Forms.PictureBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.menuStrip2 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.copyAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -70,6 +76,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.tbNrOfTiles)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMap)).BeginInit();
+            this.menuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -84,7 +91,7 @@
             this.groupBox1.Controls.Add(this.tbTop);
             this.groupBox1.Controls.Add(this.btnGetGenerealMap);
             this.groupBox1.Controls.Add(this.tbLeft);
-            this.groupBox1.Location = new System.Drawing.Point(818, 47);
+            this.groupBox1.Location = new System.Drawing.Point(818, 93);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(200, 336);
             this.groupBox1.TabIndex = 0;
@@ -257,7 +264,7 @@
             this.groupBox2.Controls.Add(this.tbNrOfTiles);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.btnGetTopoMap);
-            this.groupBox2.Location = new System.Drawing.Point(818, 611);
+            this.groupBox2.Location = new System.Drawing.Point(818, 657);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(200, 236);
             this.groupBox2.TabIndex = 1;
@@ -377,7 +384,7 @@
             // 
             // btnUrl
             // 
-            this.btnUrl.Location = new System.Drawing.Point(12, 12);
+            this.btnUrl.Location = new System.Drawing.Point(12, 64);
             this.btnUrl.Name = "btnUrl";
             this.btnUrl.Size = new System.Drawing.Size(75, 23);
             this.btnUrl.TabIndex = 2;
@@ -387,7 +394,7 @@
             // 
             // tbURL
             // 
-            this.tbURL.Location = new System.Drawing.Point(93, 14);
+            this.tbURL.Location = new System.Drawing.Point(90, 67);
             this.tbURL.Name = "tbURL";
             this.tbURL.Size = new System.Drawing.Size(925, 20);
             this.tbURL.TabIndex = 3;
@@ -396,10 +403,10 @@
             // 
             this.pbMap.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.pbMap.Location = new System.Drawing.Point(12, 47);
+            this.pbMap.Location = new System.Drawing.Point(12, 93);
             this.pbMap.Name = "pbMap";
             this.pbMap.Size = new System.Drawing.Size(800, 800);
-            this.pbMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbMap.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbMap.TabIndex = 4;
             this.pbMap.TabStop = false;
             this.pbMap.Paint += new System.Windows.Forms.PaintEventHandler(this.pbMap_Paint);
@@ -407,16 +414,67 @@
             this.pbMap.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pbMap_MouseMove);
             this.pbMap.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pbMap_MouseUp);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(876, 485);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(110, 23);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Copy Slection";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // menuStrip2
+            // 
+            this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.editToolStripMenuItem});
+            this.menuStrip2.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip2.Name = "menuStrip2";
+            this.menuStrip2.Size = new System.Drawing.Size(1025, 24);
+            this.menuStrip2.TabIndex = 7;
+            this.menuStrip2.Text = "menuStrip2";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyToolStripMenuItem,
+            this.copyAllToolStripMenuItem});
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Text = "Edit";
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.copyToolStripMenuItem.Text = "Copy";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.mnuEditCopy_Click);
+            // 
+            // copyAllToolStripMenuItem
+            // 
+            this.copyAllToolStripMenuItem.Name = "copyAllToolStripMenuItem";
+            this.copyAllToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.copyAllToolStripMenuItem.Text = "Copy all";
+            this.copyAllToolStripMenuItem.Click += new System.EventHandler(this.mnuEditCopyAll_Click);
+            // 
             // MapViewer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1025, 1023);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.pbMap);
             this.Controls.Add(this.tbURL);
             this.Controls.Add(this.btnUrl);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.menuStrip2);
             this.Name = "MapViewer";
             this.Text = "Lantmäteriets Kartor";
             this.groupBox1.ResumeLayout(false);
@@ -431,6 +489,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbMap)).EndInit();
+            this.menuStrip2.ResumeLayout(false);
+            this.menuStrip2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -473,6 +533,12 @@
         private System.Windows.Forms.TextBox tbTop;
         private System.Windows.Forms.TextBox tbLeft;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.MenuStrip menuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem copyAllToolStripMenuItem;
     }
 }
 

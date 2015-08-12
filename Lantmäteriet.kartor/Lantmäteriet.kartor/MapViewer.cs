@@ -202,5 +202,47 @@ namespace Lantmäteriet.kartor
                 Console.WriteLine(exception);
             }
         }
+
+        // Copy the selected area to the clipboard.
+        private void CopyToClipboard(Rectangle src_rect)
+        {
+            // Make a bitmap for the selected area's image.
+            var bm = new Bitmap(src_rect.Width, src_rect.Height);
+
+            // Copy the selected area into the bitmap.
+            using (var gr = Graphics.FromImage(bm))
+            {
+                var dest_rect = new Rectangle(0, 0, src_rect.Width, src_rect.Height);
+                gr.DrawImage(OriginalImage, dest_rect, src_rect,
+                    GraphicsUnit.Pixel);
+            }
+
+            // Copy the selection image to the clipboard.
+            Clipboard.SetImage(bm);
+        }
+        private void CopyAllToClipboard()
+        {
+            var image = pbMap.Image;
+
+            // Copy the selection image to the clipboard.
+            Clipboard.SetImage(image);
+        }
+
+
+        public Image OriginalImage => pbMap.Image;
+
+        // Copy the selected area to the clipboard.
+        private void mnuEditCopy_Click(object sender, EventArgs e)
+        {
+            CopyToClipboard(SelectedRect);         
+        }
+
+        private void mnuEditCopyAll_Click(object sender, EventArgs e)
+        {
+            CopyAllToClipboard();
+            System.Media.SystemSounds.Beep.Play();
+        }
+
+        public Rectangle SelectedRect => Rect;
     }
 }

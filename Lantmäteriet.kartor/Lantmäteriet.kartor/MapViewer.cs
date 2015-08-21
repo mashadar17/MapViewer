@@ -7,10 +7,13 @@ using Lantmäteriet.kartor.downloader.MapRequests;
 namespace Lantmäteriet.kartor
 {
     using static Int32;
+    using System.Reflection;
+    using log4net;
 
     public partial class MapViewer : Form
     {
         private readonly Brush _selectionBrush = new SolidBrush(Color.FromArgb(25, 189, 145, 220));
+        private readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
         private BBox ActiveBBox;
         private Rectangle Rect;
         private Point _rectStartPoint;
@@ -38,21 +41,29 @@ namespace Lantmäteriet.kartor
 
         private void btnGetTopoMap_Click(object sender, EventArgs e)
         {
-            var tmr = new TopoMapRequest
-            {
-                Tilematrixset = Parse(tbTopoMatrixSet.Text),
-                Tilematrix = Parse(tbTopoMatrix.Text),
-                Tilerow = Parse(tbTopoRow.Text),
-                Tilecol = Parse(tbTopoCol.Text)
-            };
-
-            var i = Parse(tbNrOfTiles.Text);
-
-
             try
             {
-                var image = ImageLoader.GetImage(tmr, i);
-                pbMap.Image = image;
+                log.Debug("logging is going on");
+                var tmr = new TopoMapRequest
+                          {
+                              Tilematrixset = Parse(tbTopoMatrixSet.Text),
+                              Tilematrix = Parse(tbTopoMatrix.Text),
+                              Tilerow = Parse(tbTopoRow.Text),
+                              Tilecol = Parse(tbTopoCol.Text)
+                          };
+
+                var i = Parse(tbNrOfTiles.Text);
+
+
+                try
+                {
+                    var image = ImageLoader.GetImage(tmr, i);
+                    pbMap.Image = image;
+                }
+                catch (Exception exception)
+                {
+                    Console.WriteLine(exception);
+                }
             }
             catch (Exception exception)
             {
@@ -77,7 +88,6 @@ namespace Lantmäteriet.kartor
             tbRight.Text = right.ToString();
             tbBottom.Text = bottom.ToString();
         }
-
         private void pbMap_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -87,7 +97,6 @@ namespace Lantmäteriet.kartor
             _rectStartPoint = e.Location;
             Invalidate();
         }
-
         private void pbMap_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button != MouseButtons.Left)
@@ -101,6 +110,7 @@ namespace Lantmäteriet.kartor
                 Math.Abs(_rectStartPoint.Y - tempEndPoint.Y));
             pbMap.Invalidate();
            
+
         }
 
         private void pbMap_Paint(object sender, PaintEventArgs e)
